@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and ES6 methods</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+
+<body>
+    <h1>Forms and ES6 methods</h1>
+
+    <div id="grid">
+
+        <section class="section1">
+            <h2>Find</h2>
+            <p>The find() method returns the value of the first element in the provided array that satisfies the provided testing function.<br>The method looks like this<br><br>find(callback(element[, index[, array]])[, thisArg])<br><br> Pick some numbers
+                below to see an example of how the find method works. <br><br>Make sure to pick all different numbers</p>
+            <form action="" id="find">
+
+                <label for="num1">Pick a number</label>
+                <input type="number" name="num1">
+                <label for="num2">Pick a number</label>
+                <input type="number" name="num2">
+                <label for="num3">Pick a number</label>
+                <input type="number" name="num3">
+                <label for="num4">Pick a number</label>
+                <input type="number" name="num4">
+                <label for="num5">Pick a number</label>
+                <input type="number" name="num5">
+                <button id="findBtn">Submit</button>
+                <p>The result of running find() on your numbers is:</p>
+            </form>
+        </section>
+        <section class="section2">
+            <h2>Map</h2>
+            <p>The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.<br><br>The method looks like this:<br><br>function map(collection, action) {<br> let result = [];<br> if
+                (Array.isArray(collection)) {<br> for (let i = 0; i
+                < collection.length; i++) {<br>
+                    result.push(action(collection[i], i, collection));<br> }
+                    <br> }
+                    <br> else {<br> for (let key in collection) {<br> result.push(action(collection[key], key, collection));<br> }
+                    <br> } return result;<br> }
+                    <br><br> Pick some numbers below to see an example of how the find method works. <br><br>Make sure to pick all different numbers</p>
+            <form action="submit" id="map">
+
+                <label for="num1">Pick a number</label>
+                <input type="number" name="num1">
+                <label for="num2">Pick a number</label>
+                <input type="number" name="num2">
+                <label for="num3">Pick a number</label>
+                <input type="number" name="num3">
+                <label for="num4">Pick a number</label>
+                <input type="number" name="num4">
+                <label for="num5">Pick a number</label>
+                <input type="number" name="num5">
+                <button id="mapBtn">Submit</button>
+                <p>The result of multiplying all your numbers by 2 using the map method is:</p>
+            </form>
+
+
+        </section>
+        <section class="section3">
+            <h2>Filter</h2>
+            <p>The filter() method creates a new array with all elements that pass the test implemented by the provided function. <br><br>The filter method looks like this:<br><br></p>
+            <p>function filter(array, filterfunc) { <br>
+                <br> let filteredArray = [];<br> for (let i = 0; i
+                < array.length; i++) {<br>
+                    let result = filterfunc(array[i], i, array);<br> if (result) {<br> filteredArray.push(array[i]);
+                    <br> }
+                    <br> }
+                    <br> return filteredArray;<br> };
+                    <br>
+            </p>
+            <br><br>
+            <p>Pick some numbers below to see an example of how the filter method works. <br><br>Make sure to pick all different numbers</p>
+            <form action="submit" id="filter">
+
+                <label for="num1">Pick a number</label>
+                <input type="number" name="num1">
+                <label for="num2">Pick a number</label>
+                <input type="number" name="num2">
+                <label for="num3">Pick a number</label>
+                <input type="number" name="num3">
+                <label for="num4">Pick a number</label>
+                <input type="number" name="num4">
+                <label for="num5">P ick a number</label>
+                <input type="number" name="num5">
+                <button id="filterBtn">Submit</button>
+                <p>The result of filtering out all your numbers that were greater than 4 was:</p>
+            </form>
+        </section>
+        <section class="section4">
+            <h2>Reduce</h2>
+            <p>Perhaps the easiest-to-understand case for reduce() is to return the sum of all the elements in an array.<br><br>The filter method looks like this:<br><br></p>
+            <p>function reduce(array, func, seed) {<br> let previousResult;<br> if (seed === undefined) {<br> previousResult = array[0];<br> for (let i = 1; i
+                < array.length; i++) {<br>
+                    previousResult = func(previousResult, array[i], i, array);<br> }
+                    <br> console.log(previousResult);
+                    <br> } else {<br> previousResult = seed;<br> each(array, function(e, i, a) {<br> previousResult = func(previousResult, e, i, array);<br> });
+                    <br> }
+                    <br> return previousResult;<br> };
+            </p>
+            <br><br>
+            <p>Pick some numbers below to see an example of how the reduce method works. <br><br>Make sure to pick all different numbers</p>
+            <form action="submit" id="reduce">
+
+                <label for="num1">Pick a number</label>
+                <input type="number" name="num1">
+                <label for="num2">Pick a number</label>
+                <input type="number" name="num2">
+                <label for="num3">Pick a number</label>
+                <input type="number" name="num3">
+                <label for="num4">Pick a number</label>
+                <input type="number" name="num4">
+                <label for="num5">Pick a number</label>
+                <input type="number" name="num5">
+                <button id="rdcBtn">Submit</button>
+                <p>The result of adding all your numbers together with reduce was:</p>
+            </form>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "section1 section2 section3 section4";
+    grid-template-columns: .25fr .25fr .25fr .25fr;
+    grid-template-rows: 100%;
+}
+
+
+/*grid isn't working, instead of giving me 1 row it is repeating rows...*/
+
+.section1 {
+    grid-area: section1;
+}
+
+.section2 {
+    grid-area: section2;
+}
+
+.section3 {
+    grid-area: section3;
+}
+
+.section4 {
+    grid-area: section4;
+}
+
+h1 {
+    color: black;
+    font-size: 4rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+#find,
+#reduce,
+#map,
+#filter {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.section1,
+.section2,
+.section3,
+.section4 {
+    padding: 2rem;
+}
+
+input {
+    width: 6rem;
+}
+
+label,
+button,
+p {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+p {
+    line-height: 2rem;
+}
+
+button {
+    margin: 2rem 5rem;
+}
