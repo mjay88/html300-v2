@@ -521,7 +521,7 @@ footer {
 }
 
 header {
-  background-color: #ff4d4d;
+  background-color: #F1352B;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -546,7 +546,7 @@ nav {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  background-color: #00737a;
+  background-color: #7ACB00;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -556,6 +556,15 @@ nav {
 
 nav div {
   font-size: 32px;
+  -webkit-transition: color ease .5s;
+  transition: color ease .5s;
+}
+
+nav div:hover {
+  color: #4c7f00;
+  display: block;
+  -webkit-transform: translateY(-0.5rem);
+          transform: translateY(-0.5rem);
 }
 
 nav .menu {
@@ -580,7 +589,7 @@ nav .menu a {
 }
 
 nav .menu a:hover {
-  color: #2ef3ff;
+  color: #4c7f00;
   display: block;
   -webkit-transform: translateY(-0.5rem);
           transform: translateY(-0.5rem);
@@ -593,15 +602,9 @@ nav .menu a:hover {
 }
 
 @media screen and (max-width: 320px) {
-  nav .menu a {
+  nav .menu {
     padding: 0 .3rem;
   }
-}
-
-nav .label {
-  padding-bottom: 3rem;
-  margin-bottom: -3rem;
-  z-index: 101;
 }
 
 nav li {
@@ -617,44 +620,8 @@ nav li {
   }
 }
 
-.dropdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  padding-bottom: 2rem;
-  margin-bottom: -2rem;
-  z-index: 100;
-}
-
-.dropdown_menu {
-  position: absolute;
-  top: .5rem;
-  left: 0;
-  width: 100%;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
-  display: none;
-  padding-top: 5rem;
-}
-
-.dropdown:hover .dropdown_menu--hovered {
-  display: block;
-  -webkit-animation: rotateMenu 700ms ease-in-out forwards;
-          animation: rotateMenu 700ms ease-in-out forwards;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  cursor: pointer;
-}
-
 .sidebar {
-  background-color: #9a009a;
+  background-color: #6E27C5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -668,7 +635,7 @@ nav li {
 }
 
 .main-content {
-  background-color: #ffae1a;
+  background-color: #FF6600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -683,7 +650,7 @@ nav li {
 }
 
 footer {
-  background-color: #5a009c;
+  background-color: #150F96;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
