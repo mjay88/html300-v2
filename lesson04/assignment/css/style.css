@@ -76,8 +76,8 @@ nav .menu a {
 nav .menu a:hover {
   color: #cd65cd;
   display: block;
-  -webkit-transform: translateY(-0.5rem);
-          transform: translateY(-0.5rem);
+  -webkit-transform: translateX(-0.5rem);
+          transform: translateX(-0.5rem);
 }
 
 nav .label {
