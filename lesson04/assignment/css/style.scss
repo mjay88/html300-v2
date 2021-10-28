@@ -38,7 +38,7 @@
                     color: lighten($nav-text, 15%);
                     display: block;
                     //UI consideration to help know when hovered...
-                    transform: translateY(-.5rem);
+                    transform: translateX(-.5rem);
                 }
             }
         }

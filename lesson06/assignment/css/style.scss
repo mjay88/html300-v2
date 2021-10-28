@@ -3,4 +3,304 @@
 @import 'settings.variables';
 @import 'settings.responsive';
 @import 'components.content';
+//google fonts
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+.carousel img {
+    max-width: 500px;
+    max-height: 500px;
+}
 
+body {
+    //this is here for to apply opacity to background
+    position: relative;
+    //this min-height is set otherwise background won't show up
+    min-height: 600px;
+    font-family: 'Zen Antique Soft', serif;
+}
+
+//this is for the background image because you can't use the alpha channel or change opacity with an image set as background image, so this is a work around, position absolute on this element, and then position relative on main container, all other elements will inherit this realitive postioning from parent, and it totally works suckers
+body::before {
+    content: "";
+    background-image: url(https://images.genius.com/903167747bef349acbc1c4c4db12662d.300x300x1.jpg);
+    background-size: 200px 200px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.4;
+}
+
+h1 {
+    font-size: 30px;
+    position: relative;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inner-nav {
+    @include media-query('mobile') {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+//this deals with the wonky space in drop down menu
+.show>.nav-link {
+    display: none;
+}
+
+//this makes sure "check-out" doesn't wrap
+a {
+    white-space: nowrap;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    text-decoration: none;
+    //footer function is in script???
+    margin-bottom: -5rem;
+    a:hover {
+        //match color to bootstraps 
+        color: #424242;
+        //UI consideration to help know when hovered...
+        transform: translateY(-.5rem);
+        text-decoration: underline;
+    }
+    @include media-query("small") {
+        margin-right: -1rem;
+        margin-left: -1rem;
+    }
+}
+
+//accordian
+.wrapper {
+    width: 100%;
+    padding: 5rem 3rem;
+    //these are so the cards don't look like shit when they are small
+    // @include media-query("small") {
+    //     padding: 3rem;
+    // }
+    // @include media-query("medium") {
+    //     padding: 3rem;
+    // }
+}
+
+input {
+    display: none;
+}
+
+label {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    border: 3px solid #3E474F;
+    user-select: none;
+}
+
+label div:first-child {
+    width: 100%;
+    line-height: 45px;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+//plus sign on accordian sign
+.cross {
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+//defining the plus signs style
+.cross:before,
+.cross:after {
+    content: '';
+    border-top: 2px solid #3E474F;
+    width: 15px;
+    display: block;
+    margin-top: 18px;
+    transition: 0.3s;
+}
+
+.cross:after {
+    transform: rotate(90deg);
+    margin-top: -2px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    margin: 10px 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height, .5s;
+}
+
+input:checked~.content {
+    //space defined for how far accordian will drop down to prevent children from stacking or wrapping ugly
+    //should I use a media query for this? max-height is a responsive consideration already?
+    max-height: 3000px;
+    transition: max-height, 1s;
+}
+
+//plus sign turns into dash when accordian activated
+input:checked~label .cross:before {
+    transform: rotate(180deg);
+}
+
+//dash sign rotates back to plus sign 
+input:checked~label .cross:after {
+    transform: rotate(0deg);
+}
+
+//cards inside of accordian
+//margin creates space around the outside of the element
+.card {
+    margin: 1rem;
+}
+
+//the media-query mixin is designed for mobile first design, Im and idiot and forgot to do that out of habit so I modified the settings.responsive file a bit (replaced min with max in some breakpoints), and have it going from large to small as you can see here
+.card-body {
+    @include media-query("large") {
+        padding: .75rem 1rem;
+    }
+    @include media-query("medium-large") {
+        padding: .75rem 1rem;
+    }
+    @include media-query("mobile") {
+        padding: .5rem 1rem;
+    }
+    @include media-query("medium-small") {
+        padding: .5rem 1rem;
+    }
+    @include media-query('small') {
+        padding: .5rem 1rem;
+    }
+}
+
+//counter inside of cards inside of accordian
+.counter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.counter-plus,
+.counter-minus {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    // background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: ‘Open Sans’;
+    font-weight: 900;
+    color: #202020;
+    cursor: pointer;
+}
+
+.count {
+    font-size: 20px;
+    font-family: ‘Open Sans’;
+    font-weight: 900;
+    color: #202020;
+}
+
+//cart
+.bi,
+.cart-display {
+    color: white;
+}
+
+.cart-container {
+    display: flex;
+    justify-self: end;
+    margin-right: auto;
+}
+
+.bi {
+    margin-bottom: .33rem;
+}
+
+//keeps card images the same size and responsive
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    //object-fit : cover for the fucking win
+    //this is fixing the cards on small screen issue start here next time
+    @include media-query("desk") {
+        height: 20vw;
+    }
+    @include media-query("lg") {
+        height: 23vw;
+    }
+    @include media-query("medium-large") {
+        height: 25vw;
+    }
+    @include media-query("mobile") {
+        height: 28vw;
+    }
+    @include media-query("medium-small") {
+        height: 30vw;
+    }
+    @include media-query("small") {
+        height: 35vw;
+    }
+}
+
+//tool tips
+.tooltip-container {
+    overflow: auto;
+}
+
+//this does'nt fucking work how do I adjust margin and padding for tooltip, html true aint working neither?
+.tooltip.left {
+    padding: 5px 0;
+    margin-left: -105px;
+}
+
+/////////////////////cart page/////////////////////////////////
+.items-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    img {
+        width: 100%;
+        height: 15vw;
+        @include media-query("desk") {
+            height: 20vw;
+        }
+        @include media-query("lg") {
+            height: 23vw;
+        }
+        @include media-query("medium-large") {
+            height: 25vw;
+        }
+        @include media-query("mobile") {
+            height: 28vw;
+        }
+        @include media-query("medium-small") {
+            height: 30vw;
+        }
+        @include media-query("small") {
+            height: 35vw;
+        }
+    }
+}
+
+.cart-content {
+    max-height: 3000px;
+}
