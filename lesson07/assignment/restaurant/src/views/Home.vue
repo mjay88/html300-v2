@@ -2,11 +2,11 @@
 
   <div class="home">                                                                       <!--its not working / where to put this???-->
      <div id="carousel" class="carousel slide carousel-fade m-5" data-bs-ride="carousel">
+                <!-- mixin for image border -->
             <div class="carousel-inner" :class="{giveMeABorder: giveMeABorder}" @click="toggleImageBorder" >
-                <!--The .active class needs to be added to one of the slides otherwise the carousel will not be visible. -->
-            <!-- mixin for image border -->
-           <!-- <div v-for="idx in carouselImages"  :key=idx.key :class="{active: idx==idx[0]}"> -->
-             
+              
+   
+               <!--The .active class needs to be added to one of the slides otherwise the carousel will not be visible. active class is added at each new iteration -->
             <CarouselImage  v-for="(image, idx) in carouselImages"
              :key=image.key
              :img=image.img
