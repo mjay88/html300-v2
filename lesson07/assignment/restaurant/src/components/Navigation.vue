@@ -1,7 +1,7 @@
 <template>
 
     <div class="position-relative container">
-            <!--display 1 more emphatic then header styling-->
+            <!--display-1 more emphatic then header styling-->
             <h1 class="display-1 d-flex justify-content-center align-items-center text-center text-dark p-3 mt-5">Smokey Joes' Cafe</h1>
 
 

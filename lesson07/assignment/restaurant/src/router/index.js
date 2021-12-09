@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 //this is where the styling for the entire site is coming from, i think
 import Home from '../views/Home.vue'
 //how to get to css file? Error: this relative module was not found: * ../css/style.sass in ./src/router/index.js
-//import Sass from '../css/style.sass'
+//import Sass from '../css/style.sass' this is not working???...
 
 
 Vue.use(VueRouter)
