@@ -1,4 +1,4 @@
-//this is the mixin
+//mixin
 export const imageBorder = {
 
     methods: {

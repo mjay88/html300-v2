@@ -12,7 +12,7 @@
                                         <!--gets product description-->
                 <p class="card-text">{{description}}</p>
                 <div class="counter-container">
-                <!--this all works now that my js.file script tag is underneath the vue.js and product-display.js script tags, havent noticed any conflicts with bootstrap script yet-->
+                <!--this all    works now that my js.file script tag is underneath the vue.js and product-display.js script tags, havent noticed any conflicts with bootstrap script yet-->
                     <a href="#" class="btn btn-primary add-cart">Add to cart</a>
                     <button class="btn counter-minus">-</button>
                     <div class="count">0</div>
