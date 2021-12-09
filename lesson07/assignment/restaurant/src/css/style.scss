@@ -1,4 +1,4 @@
-// Import partials here
+// partials here
 @import 'base.normalize';
 @import 'settings.variables';
 @import 'settings.responsive';
@@ -29,8 +29,8 @@ body::before {
     bottom: 0px;
     left: 0px;
     opacity: 0.4;
-    //this is so the footer links still work, this wasn't an issue on lesson 6 so what the fuck god dammit
-    z-index: -1000;
+    //fixed covered links
+    z-index: -420;
 }
 
 h1 {
@@ -145,6 +145,20 @@ label div:first-child {
     max-height: 0;
     overflow: hidden;
     transition: max-height, .5s;
+}
+
+//for product-display component
+#app {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+//for v-if/else statement on meatloaf card in menu-lunch html file for vue js lesson 7
+div.product-count-display {
+    margin-bottom: 1rem;
 }
 
 input:checked~.content {
