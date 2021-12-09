@@ -1,6 +1,6 @@
 <template>
   <div class="carousel-item">
-    <img class="d-block w-100 img-fluid mx-auto rounded" v-bind:src="img" v-bind:alt="alt"  :class="{giveMeABorder: giveMeABorder}" @click="toggleImageBorder" />
+    <img class="d-block w-100 img-fluid mx-auto rounded" v-bind:src="img" v-bind:alt="alt"  />
   </div>
 </template>
 

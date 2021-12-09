@@ -5,7 +5,7 @@
             <input type="checkbox" checked="checked" id="tab-1" name="tabs">
             <label for="tab-1"><div data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Lunch</div><div class="cross"></div></label>
             <div class="content">
-                <!--menu compoent-->
+                <!--menu compoent -->
                  <MenuComponent  v-for="product in lunchItemsOnly" 
         :key=product.tag 
         :description=product.description 

@@ -1,6 +1,6 @@
 <!--Dropdown.vue is used inside of Navigation.vue-->
 <template>
-<!--toggle trick-->
+<!--toggle trick to switch between states-->
   <div class="menu-item" @click="isOpen = !isOpen">
     <a href="#">
       {{ title }}

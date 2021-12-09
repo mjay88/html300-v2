@@ -2,7 +2,7 @@
   <div class="catering">
      <div class="container-fluid postion-relative justify-content-md-center">
             <div class="row">
-                <!-- This column starts out large/taking up the majority of the space, and as it scales down, it will take up less and less of the available space -->
+                <!-- This column start out large/taking up the majority of the space, and as it scales down, it will take up less and less of the available space -->
                 <div class="col-sm-2 col-md-4 col-lg-5 col-xl-7 bg-light">
                     This column starts out large/taking up the majority of the space, as it scales down it will take up less and less of the available space until it reachs bootstraps xs breakpoint at 567px at which point everything will stack into one column and the proportion
                     of space it takes up will be dictated by the content.<br><br><br> class="col-sm-2 col-md-5 col-lg-6 col-xl-7" <br><br><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis, sed ipsa quas repudiandae

@@ -70,6 +70,7 @@
 <script>
 //import components
 import MenuComponent from '../components/MenuComponent.vue'
+//import Datepicker from install
 import Datepicker from 'vuejs-datepicker'
 
 export default{

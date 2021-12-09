@@ -1,5 +1,5 @@
 <template>
-<!--need to refactor, all images need to come from variable in data-->
+
   <div class="home">                                                                       <!--its not working / where to put this???-->
      <div id="carousel" class="carousel slide carousel-fade m-5" data-bs-ride="carousel">
             <div class="carousel-inner" :class="{giveMeABorder: giveMeABorder}" @click="toggleImageBorder" >

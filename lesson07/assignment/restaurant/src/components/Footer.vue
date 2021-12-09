@@ -20,6 +20,7 @@ export default {
 
 </script>
 <style>
+/*bootstrap styling not applying?*/
 .footer{
   width: 100%;
   text-decoration: none;
