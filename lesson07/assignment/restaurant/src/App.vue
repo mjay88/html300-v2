@@ -3,7 +3,7 @@
     <!-- nav component -->
       <Navigation />
       <router-view/>
-      <!-- footer component -->
+      <!-- footer  component -->
       <Footer />
   </div>
 </template>
