@@ -1,3 +1,82 @@
+<template>
+<!--need to refactor, all images need to come from variable in data-->
+  <div class="home">                                                                       <!--its not working / where to put this???-->
+     <div id="carousel" class="carousel slide carousel-fade m-5" data-bs-ride="carousel">
+            <div class="carousel-inner" :class="{giveMeABorder: giveMeABorder}" @click="toggleImageBorder" >
+                <!--The .active class needs to be added to one of the slides otherwise the carousel will not be visible. -->
+            <!-- mixin for image border -->
+           <!-- <div v-for="idx in carouselImages"  :key=idx.key :class="{active: idx==idx[0]}"> -->
+             
+            <CarouselImage  v-for="(image, idx) in carouselImages"
+             :key=image.key
+             :img=image.img
+             :alt=image.alt 
+             :class="{giveMeABorder: giveMeABorder, active: idx==[0]}" @click="toggleImageBorder" 
+            />
+            
+             
+            </div>
+        </div>
+        <!--Think of the Row as a group of Columns
+This is because columns inside the .row aren’t always laid-out horizontally across the viewport .row is also display:flex by default -->
+        <div class="postion-relative row justify-content-md-center">
+            <div class="postion-relative col lead text-dark fs-4 p-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quis, eveniet molestiae tenetur repudiandae nemo provident dolorem iusto fugit, voluptatum, expedita placeat asperiores nisi corporis? Quia fugit enim quis temporibus. Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Pariatur quaerat veniam maxime.
+            </div>
+        </div>
+   
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+//import mixin for border toggle
+import { imageBorder } from "../mixins/imageBorder";
+import CarouselImage from '../components/CarouselImage.vue';
+
+export default {
+  //registar mixin
+  mixins: [imageBorder],
+  //name of this file, exporting this for the style
+  name: "Home",
+
+  data() {
+    return {
+      //when the page loads the style for the border will be turned off, changes on click
+      giveMeABorder: false,
+      carouselImages: [
+        {
+          img: "https://images.unsplash.com/photo-1600164318544-79e55da1ac8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3012&q=80",
+          alt: "Neon pink sign that says let the good times roll.",
+          key: 1
+        },
+        {
+          img: "https://images.unsplash.com/photo-1550950158-d0d960dff51b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3293&q=80",
+          alt: "A photograph of a big juicy burger.",
+          key: 2
+        },
+        {
+          img: "https://images.unsplash.com/photo-1492934867615-2a451e01c063?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80",
+          alt: "A photograph of a modern concept dining space",
+          key: 3
+        },
+        {
+          img: "https://images.unsplash.com/photo-1631503190221-0f6a15367926?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3491&q=80",
+          alt: "A photograph of a campari based cocktail garnished with a lime wheel and straw",
+          key: 4
+        },
+      ],
+    };
+  },
+  //need to bind img src to a variable and then add class via toggleImageBorder mixin
+  components: {
+    CarouselImage
+  },
+};
+</script>
+
+<style>
 @charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -44,6 +123,12 @@ nav,
 section,
 summary {
   display: block;
+}
+
+/*styleing for toggleImageBorder *********************************************************************************************************************************/
+
+.giveMeABorder {
+  border: 3px dashed pink;
 }
 
 /**
@@ -193,7 +278,7 @@ figure {
  */
 hr {
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 
@@ -310,7 +395,7 @@ input {
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -334,7 +419,7 @@ input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 2 */
 }
 
@@ -400,14 +485,14 @@ th {
 
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:after,
 *:before {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 .main {
@@ -421,8 +506,8 @@ html {
 
 body {
   position: relative;
-  min-height: 600px;
-  font-family: 'Zen Antique Soft', serif;
+  min-height: 800px;
+  font-family: "Zen Antique Soft", serif;
 }
 
 body::before {
@@ -435,7 +520,7 @@ body::before {
   bottom: 0px;
   left: 0px;
   opacity: 0.4;
-  z-index: -1000;
+  z-index: -420;
 }
 
 h1 {
@@ -452,10 +537,10 @@ h1 {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 }
 
@@ -472,18 +557,20 @@ a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-evenly;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -ms-flex-align: end;
+  align-items: end;
   text-decoration: none;
-  margin-bottom: -5rem;
+  color: #424242;
+
+  /* margin-bottom: -5rem; */
 }
 
 .footer a:hover {
   color: #424242;
   -webkit-transform: translateY(-0.5rem);
-          transform: translateY(-0.5rem);
+  transform: translateY(-0.5rem);
   text-decoration: underline;
 }
 
@@ -510,11 +597,11 @@ label {
   width: 100%;
   height: 50px;
   cursor: pointer;
-  border: 3px solid #3E474F;
+  border: 3px solid #3e474f;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 label div:first-child {
@@ -531,8 +618,8 @@ label div:first-child {
 
 .cross:before,
 .cross:after {
-  content: '';
-  border-top: 2px solid #3E474F;
+  content: "";
+  border-top: 2px solid #3e474f;
   width: 15px;
   display: block;
   margin-top: 18px;
@@ -542,7 +629,7 @@ label div:first-child {
 
 .cross:after {
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
   margin-top: -2px;
 }
 
@@ -551,20 +638,41 @@ label div:first-child {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 0.9em;
   margin: 10px 10px;
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: max-height, .5s;
-  transition: max-height, .5s;
+  -webkit-transition: max-height, 0.5s;
+  transition: max-height, 0.5s;
+}
+
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+div.product-count-display {
+  margin-bottom: 1rem;
 }
 
 input:checked ~ .content {
@@ -575,12 +683,12 @@ input:checked ~ .content {
 
 input:checked ~ label .cross:before {
   -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 input:checked ~ label .cross:after {
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .card {
@@ -589,25 +697,25 @@ input:checked ~ label .cross:after {
 
 @media screen and (max-width: 831px) {
   .card-body {
-    padding: .75rem 1rem;
+    padding: 0.75rem 1rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   .card-body {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
 @media screen and (max-width: 660px) {
   .card-body {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
 @media screen and (max-width: 550px) {
   .card-body {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -617,13 +725,13 @@ input:checked ~ label .cross:after {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .counter-plus,
@@ -635,11 +743,11 @@ input:checked ~ label .cross:after {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 20px;
   font-family: ‘Open Sans’;
   font-weight: 900;
@@ -668,7 +776,7 @@ input:checked ~ label .cross:after {
 }
 
 .bi {
-  margin-bottom: .33rem;
+  margin-bottom: 0.33rem;
 }
 
 .card-img-top {
@@ -726,12 +834,12 @@ input:checked ~ label .cross:after {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .items-container img {
@@ -779,3 +887,4 @@ input:checked ~ label .cross:after {
   max-height: 3000px;
 }
 /*# sourceMappingURL=style.css.map */
+</style>

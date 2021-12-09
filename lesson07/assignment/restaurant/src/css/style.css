@@ -435,7 +435,7 @@ body::before {
   bottom: 0px;
   left: 0px;
   opacity: 0.4;
-  z-index: -1000;
+  z-index: -420;
 }
 
 h1 {
@@ -565,6 +565,27 @@ label div:first-child {
   overflow: hidden;
   -webkit-transition: max-height, .5s;
   transition: max-height, .5s;
+}
+
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+div.product-count-display {
+  margin-bottom: 1rem;
 }
 
 input:checked ~ .content {

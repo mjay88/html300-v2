@@ -15,12 +15,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="http://fonts.cdnfonts.com/css/smoke" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
-    <title>Assignment 06 - Bootstrap 4</title>
+    <!--vue cdn-->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Assignment 06 - Menu</title>
 </head>
 
 <body>
     <!--this postion relative is set so the background opacity works  https://coder-coder.com/background-image-opacity/#:~:text=There's%20no%20CSS%20property%20that,for%20the%20background%2Dimage%20property. -->
-    <div class="position-relative container-fluid">
+    <div class="position-relative container">
 
 
 
@@ -38,6 +41,7 @@
                         <a class="nav-link" href="cart.html">Checkout</a>
                     </div>
                 </div>
+                <!--cart-->
             </div>
             <div class="cart-container" style="float:right">
                 <a href="cart.html" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -49,8 +53,8 @@
     </nav>
 
 
-
-
+    <!--carousel here-->
+    <!--make give this a class of container, add a class of row on line 57, define col in individual items???-->
     <div class="wrapper">
 
 
@@ -59,7 +63,7 @@
             <input type="checkbox" checked="checked" id="tab-1" name="tabs">
             <label for="tab-1"><div data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Lunch</div><div class="cross"></div></label>
             <div class="content">
-                <div class="card" style="max-width: 18rem;">
+                <div class="card" style="width: 18rem;">
                     <!--tooltip, all styling is coming from bootstrap, placement from function in script at bottom, when I but the function in the function file it loses its styling??? order of scripts at bottom maybe causing this, conflicting libraries-->
                     <img data-toggle="tooltip1" data-placement="left" data-html="true" title="" src="https://images.unsplash.com/photo-1564767655658-4e6b365884ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top tip1"
                         alt="Photo of Tacos on a serving tray.">
@@ -97,7 +101,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Ham Sammich</h5>
                         <p class="card-text"><strong>Cost:</strong>$8.50</p>
-                        <p class="card-text">Ham, the way it's supposed to be...<br><br></p>
+                        <p class="card-text">Ham, the way it's supposed to be...</p>
                         <div class="counter-container">
                             <a href="#" class="btn btn-primary add-cart">Add to cart</a>
                             <button class="btn counter-minus">-</button>
@@ -139,7 +143,7 @@
                     <img src="https://www.camelliabrand.com/static/wp-content/uploads/2012/06/Vegetarian-Red-Beans.jpg" class="card-img-top" alt="Phote of a bowl of beans and rice.">
                     <div class="card-body">
                         <h5 class="card-title">Beans and Rice</h5>
-                        <p class="card-text"><strong>Cost:</strong>$8.50</p>
+
                         <p class="card-text">If you don't eat beans and rice then step off.</p>
                         <div class="counter-container">
                             <a href="#" class="btn btn-primary add-cart">Add to cart</a>
@@ -355,10 +359,12 @@
 
 
 
+    </div>
 
-    <!--cdn tooltips/ popperjs-->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <!--jquery cdn via google-->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--this is here so the fucking footer stays at the bottom in all scenarios "flushing", also want a bootstrap flex solution though, margin-bottom is set in css to as well, also why the fuck does this not work when I put it in my js file?-->
     <script>
@@ -377,13 +383,6 @@
             }, 250);
         });
     </script>
-    <!--jquery cdn-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!--my script what the fuck order should this all be in-->
-    <script type="text/javascript" src="js/file.js"></script>
-    <!--bootstrap cdn-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
     <!--tooltip function-->
     <!--this function is working, but none of the other ones did...and why doesn't this javascript work if it is in my js file?-->
     <!--tooltip for tooltip1/tacos-->
@@ -396,8 +395,16 @@
             })
         })
     </script>
-
-
+    <!--old js file-->
+    <script type="text/javascript" src="js/file.js"></script>
+    <!--vue cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!--vue instance-->
+    <script type="text/javascript" src="js/vue.js"></script>
+    <!--mount app-->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
 
 </body>
 
