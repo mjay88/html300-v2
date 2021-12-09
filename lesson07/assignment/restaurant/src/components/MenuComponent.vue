@@ -1,7 +1,7 @@
 <template>
    
      <div  class="card" style="max-width: 18rem;">
-                        <!--gets  products img-->
+                        <!--gets product img-->
             <img class="card-img-top" v-bind:src="imgSrc" v-bind:alt="alt">
             <div></div>
             <div class="card-body">
